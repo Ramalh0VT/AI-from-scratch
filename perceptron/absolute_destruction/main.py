@@ -16,6 +16,7 @@ while running:
             running = False
     screen.fill("black")
     pygame.draw.circle(screen, "red", player_pos, 50)
+
     
 pygame.quit()
 
