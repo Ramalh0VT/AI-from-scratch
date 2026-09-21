@@ -2,8 +2,6 @@ import random
 import time
 import pygame
 
-"""
-
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
 clock = pygame.time.Clock()
@@ -23,7 +21,7 @@ pygame.quit()
 
 
 
---
+"""
 weights = []
 inputs = [0, 0]
 
