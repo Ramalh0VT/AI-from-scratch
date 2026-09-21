@@ -1,7 +1,7 @@
 import random
 import time
 weights = []
-inputs = [10, 50]
+inputs = [0, 0]
 
 for i in range(7):
     weights.append(random.randint(-1000,1000))
@@ -18,6 +18,7 @@ def sum_function():
         step_function()
     else:
         print("didn't jump")
+    print(f'sum: ${the_sum}')
     
     
 def step_function():
@@ -31,7 +32,6 @@ while True:
     inputs[1] += 1
     print(inputs)
     sum_function()
-    step_function()
     time.sleep(1)
 
     
