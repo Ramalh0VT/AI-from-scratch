@@ -1,5 +1,18 @@
 import random
 import time
+import pygame
+
+pygame.init()
+screen = pygame.display.set_mode((640, 480))
+clock = pygame.time.Clock()
+running = True
+
+while running:
+
+
+
+"""
+--
 weights = []
 inputs = [0, 0]
 
@@ -33,7 +46,4 @@ while True:
     print(inputs)
     sum_function()
     time.sleep(1)
-
-    
-
-    
+""" 
