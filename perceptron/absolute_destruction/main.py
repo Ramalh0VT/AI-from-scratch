@@ -2,16 +2,27 @@ import random
 import time
 import pygame
 
+"""
+
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
 clock = pygame.time.Clock()
 running = True
+dt = 0
+
+player_pos = pygame.Vector2(0,0)
 
 while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    screen.fill("black")
+    pygame.draw.circle(screen, "red", player_pos, 50)
+    
+pygame.quit()
 
 
 
-"""
 --
 weights = []
 inputs = [0, 0]
