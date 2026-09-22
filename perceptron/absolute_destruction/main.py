@@ -15,9 +15,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     screen.fill("black")
-    pygame.draw.circle(screen, "red", player_pos, 50)
-
-    
+    pygame.draw.circle(screen, "red", player_pos, 50)   
 pygame.quit()
 
 
@@ -56,4 +54,5 @@ while True:
     print(inputs)
     sum_function()
     time.sleep(1)
-""" 
+"""
+
