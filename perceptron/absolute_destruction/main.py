@@ -1,12 +1,21 @@
 import random
 import time
 import pygame
+
 class ai:
     def __init__(self):
         self.weights = []
         for i in range(7):
             self.weights.append(random.randint(-1000,1000))
-        def sum(self):
+
+    def sum_function(self, vision_array):
+        sum_result = 0
+        for weight in self.weights:
+        sum_result += weight * vision_array[0]
+        sum_result += weight * vision_array[1]
+        return sum_result
+        
+    
 
 
 
