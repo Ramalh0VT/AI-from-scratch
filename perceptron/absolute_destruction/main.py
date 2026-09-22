@@ -2,7 +2,7 @@ import random
 import time
 import pygame
 
-class ai:
+class bot:
     def __init__(self):
         self.weights = []
         self.pos = pygame.Vector2(0,0)
@@ -32,6 +32,9 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
+for in range(500):
+
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -40,10 +43,10 @@ screen.fill("white")
 pygame.display.flip()
 dt = clock.tick(60) / 1000
 for i in range(500):
+    
 
 
-
-
+    
 pygame.quit()
 
 
