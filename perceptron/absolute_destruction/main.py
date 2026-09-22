@@ -14,6 +14,12 @@ class ai:
         sum_result += weight * vision_array[0]
         sum_result += weight * vision_array[1]
         return sum_result
+    
+    def step_function(self, final_sum):
+        if final_sum > 0:
+            return True
+        elif final_sum <= 0:
+            return False
         
     
 
