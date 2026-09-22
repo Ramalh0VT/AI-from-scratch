@@ -1,6 +1,15 @@
 import random
 import time
 import pygame
+class ai:
+    def __init__(self):
+        self.weights = []
+        for i in range(7):
+            self.weights.append(random.randint(-1000,1000))
+        def sum(self):
+
+
+
 
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
