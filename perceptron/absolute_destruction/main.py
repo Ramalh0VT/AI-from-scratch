@@ -20,10 +20,9 @@ class ai:
             return True
         elif final_sum <= 0:
             return False
-        
     
-
-
+    def create_current_ai(self):
+        
 
 
 pygame.init()
@@ -32,14 +31,16 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
-player_pos = pygame.Vector2(0,0)
+initial_pos = pygame.Vector2(0,0)
 
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
     screen.fill("black")
-    pygame.draw.circle(screen, "red", player_pos, 50)   
+    pygame.draw.circle(screen, "red", initial_pos, 50)
+    pygame.display.flip
+    dt = clock.tick(60)/1000
 pygame.quit()
 
 
