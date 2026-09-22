@@ -35,8 +35,11 @@ dt = 0
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+           running = False
 screen.fill("white")
+pygame.display.flip()
+dt = clock.tick(60) / 1000
+for i in range(500):
 
 
 
