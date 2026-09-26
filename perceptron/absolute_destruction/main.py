@@ -3,8 +3,9 @@ import time
 import pygame
 
 class bot:
-    def __init__(self):
+    def __init__(self, id):
         self.weights = []
+        self.id = 0
         self.pos = pygame.Vector2(0,0)
         for i in range(7):
             self.weights.append(random.randint(-1000,1000))
@@ -32,8 +33,8 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
-for in range(500):
-
+for i in range(500):
+    bot(i)
 
 while running:
     for event in pygame.event.get():
