@@ -30,6 +30,9 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
+new_bot = bot([1,2,3], pygame.Vector2(0,0), 1)
+print((getattr(new_bot,'id')))
+
 bots_array = []
 for i in range(500):
     cur_weights = []
@@ -39,7 +42,6 @@ for i in range(500):
     bots_array.append(getattr(bot, "id"))
 
 
-print(bots_array)
 
 while running:
     for event in pygame.event.get():
