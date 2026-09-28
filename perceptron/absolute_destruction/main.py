@@ -33,8 +33,12 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
+bots_array = []
+
 for i in range(500):
     bot(i)
+    bots_array.append(bot)
+    
 
 while running:
     for event in pygame.event.get():
