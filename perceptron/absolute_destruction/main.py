@@ -4,12 +4,11 @@ import pygame
 
 class bot:
     def __init__(self, to_id):
-        self.weights = []
-        self.id = to_id
-        self.pos = pygame.Vector2(0,0)
+        sef.weights = []
         for i in range(7):
             self.weights.append(random.randint(-1000,1000))
-        return self.id
+        self.id = to_id
+        self.pos = pygame.Vector2(0,0)
 
     def sum_function(self, vision_array):
         sum_result = 0
@@ -37,8 +36,9 @@ dt = 0
 bots_array = []
 
 for i in range(500):
-    bot(i)
-    bots_array.append(getattr(bot, 'id'))
+    cur_bot = bot(i)
+    print(dir(bot))
+    bots_array.append(getattr(bot, 'weights'))
 
 print(bots_array)
 
