@@ -4,14 +4,9 @@ import pygame
 
 class bot:
     def __init__(self, weights, pos, to_id):
-        print("hi")
         self.weights = weights
-        #for i in range(7):
-          #  self.weights.append(random.randint(-1000,1000))
         self.pos = pos
         self.id = to_id
-
-        #pygame.Vector2(0,0)
 
     def sum_function(self, vision_array):
         sum_result = 0
@@ -21,14 +16,13 @@ class bot:
             return sum_result
     
     def step_function(self, final_sum):
-        if final_sum > 0:
-            return True
-        elif final_sum <= 0:
-            return False
+        if final_sum >= 0.9:
+            return 1
+        elif final_sum < 0.9:
+            return 0
 
     def update_pos(self):
         pygame.draw.circle(screen, "red", self.pos, 40)    
-
 
 pygame.init()
 screen = pygame.display.set_mode((640,480))
@@ -37,15 +31,13 @@ running = True
 dt = 0
 
 bots_array = []
-
 for i in range(500):
     cur_weights = []
     for i in range(7):
         cur_weights.append(random.randint(-1000,1000))
-
     cur_bot = bot(cur_weights, pygame.Vector2(0,0), i)
-    print(dir(bot))
-    bots_array.append(getattr(bot, 'weights'))
+    bots_array.append(getattr(bot, "id"))
+
 
 print(bots_array)
 
