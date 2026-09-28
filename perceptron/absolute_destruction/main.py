@@ -4,6 +4,7 @@ import pygame
 
 class bot:
     def __init__(self, to_id):
+        print("hi")
         sef.weights = []
         for i in range(7):
             self.weights.append(random.randint(-1000,1000))
