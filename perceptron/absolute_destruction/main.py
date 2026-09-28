@@ -13,9 +13,9 @@ class bot:
     def sum_function(self, vision_array):
         sum_result = 0
         for weight in self.weights:
-        sum_result += weight * vision_array[0]
-        sum_result += weight * vision_array[1]
-        return sum_result
+            sum_result += weight * vision_array[0]
+            sum_result += weight * vision_array[1]
+            return sum_result
     
     def step_function(self, final_sum):
         if final_sum > 0:
@@ -45,14 +45,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
            running = False
-screen.fill("white")
-pygame.display.flip()
-dt = clock.tick(60) / 1000
-for i in range(500):
-    
-
-
-    
+    screen.fill("white")
+    pygame.display.flip()
+    dt = clock.tick(60) / 1000
 pygame.quit()
 
 
