@@ -3,12 +3,13 @@ import time
 import pygame
 
 class bot:
-    def __init__(self, id):
+    def __init__(self, to_id):
         self.weights = []
-        self.id = 0
+        self.id = to_id
         self.pos = pygame.Vector2(0,0)
         for i in range(7):
             self.weights.append(random.randint(-1000,1000))
+        return self.id
 
     def sum_function(self, vision_array):
         sum_result = 0
@@ -37,7 +38,7 @@ bots_array = []
 
 for i in range(500):
     bot(i)
-    bots_array.append(bot)
+    bots_array.append(getattr(bot, 'id'))
 
 print(bots_array)
 
