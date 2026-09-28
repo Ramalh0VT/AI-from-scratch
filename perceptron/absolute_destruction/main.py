@@ -38,7 +38,8 @@ bots_array = []
 for i in range(500):
     bot(i)
     bots_array.append(bot)
-    
+
+print(bots_array)
 
 while running:
     for event in pygame.event.get():
