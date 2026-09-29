@@ -10,9 +10,15 @@ class bot:
         self.alive = True
         self.sum_results = []
     
-    def neuron_sum(self, inputs):
+    #Both neuron sum and final sum are included in the below function
+     
+    def complete_sum(self, inputs):
+        current_sum = 0
         for neuron in neurons:
             for weight in neuron:
+                current_sum = weight * inputs[0] + weight * inputs[1]
+                sum_results.append(current_sum)
+            current_sum = 0
                 
     def step_function(self, final_sum):
         if final_sum >= 0.9:
@@ -20,8 +26,6 @@ class bot:
         elif final_sum < 0.9:
             return 0
 
-    def update_pos(self):
-        pygame.draw.circle(screen, "red", self.pos, 40) 
 
 pygame.init()
 screen = pygame.display.set_mode((640,480))
