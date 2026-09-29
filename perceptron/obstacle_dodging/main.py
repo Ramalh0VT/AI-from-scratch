@@ -32,12 +32,15 @@ dt = 0
 
 bots_array = []
 cur_weights = []
-for i in range(500):
-    for i2 in range(2):
+for cur_id in range(500):
+    for _ in range(2):
         cur_weights.append(random.randint(-1000,1000))
-    cur_bot = bot(cur_weights, pygame.Vector2(0,0), i)
-    bots_array.append(getattr(cur_bot, "id"))
-    print(bots_array)
+    cur_bot = bot(cur_weights, pygame.Vector2(0,0), cur_id +1)
+    bots_array.append({
+        "id": f'${cur_id + 1}'
+        "weights": f'${cur_weights}'
+        })
+print(bots_array)
 
 
 while running:
