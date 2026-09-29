@@ -22,7 +22,7 @@ class bot:
             return 0
 
     def update_pos(self):
-        pygame.draw.circle(screen, "red", self.pos, 40)    
+        pygame.draw.circle(screen, "red", self.pos, 40) 
 
 pygame.init()
 screen = pygame.display.set_mode((640,480))
@@ -33,10 +33,11 @@ dt = 0
 bots_array = []
 cur_weights = []
 for i in range(500):
-    for i in range(2):
+    for i2 in range(2):
         cur_weights.append(random.randint(-1000,1000))
     cur_bot = bot(cur_weights, pygame.Vector2(0,0), i)
     bots_array.append(getattr(cur_bot, "id"))
+    print(bots_array)
 
 
 while running:
