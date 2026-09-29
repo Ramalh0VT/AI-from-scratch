@@ -4,17 +4,16 @@ import pygame
 
 class bot:
     def __init__(self, weights, pos, to_id):
-        self.weights = weights
+        self.neurons = neurons
         self.pos = pos
         self.id = to_id
-
-    def sum_function(self, vision_array):
-        sum_result = 0
-        for weight in self.weights:
-            sum_result += weight * vision_array[0]
-            sum_result += weight * vision_array[1]
-            return sum_result
+        self.alive = True
+        self.sum_results = []
     
+    def neuron_sum(self, inputs):
+        for neuron in neurons:
+            for weight in neuron:
+                
     def step_function(self, final_sum):
         if final_sum >= 0.9:
             return 1
