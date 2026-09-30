@@ -4,13 +4,12 @@ import pygame
 import math
 
 class bot:
-    def __init__(self, weights, pos, to_id):
+    def __init__(self, neurons, pos, to_id):
         self.neurons = neurons
         self.pos = pos
         self.id = to_id
         self.alive = True
         self.sum_results = []
-    
     #Both neuron sum ,final sum AND sigmoid function are included in the below function
     def complete_sum(self, inputs):
         current_sum = 0
@@ -18,9 +17,9 @@ class bot:
         for neuron in self.neurons:
             for weight in neuron:
                 current_sum = weight * inputs[0] + weight * inputs[1]
-                sum_results.append(current_sum)
+                self.sum_results.append(current_sum)
             current_sum = 0
-        for sum_result in sum_results:
+        for sum_result in self.sum_results:
             final_sum += sum_result
         return 1 / (1 + math.exp(-final_sum))
 
@@ -30,7 +29,19 @@ class bot:
         elif final_sum < 0.9:
             return 0
 
-new_bot = bot()
+test_neurons = []
+current_tnv = []
+for _ in range(5):
+    for __ in range(2):
+        current_tnv.append(random.randint(-1000,1000))
+    test_neurons.append(current_tnv)
+    current_tnv = []
+print(test_neurons)
+
+new_bot = bot([[-72,92], [9, -39], [-500, -583],[120, 300],[942, 938]], pygame.Vector2(0,0), 1)
+final_sum_test = new_bot.complete_sum([30,10])
+print(final_sum_test)
+
 
 pygame.init()
 screen = pygame.display.set_mode((640,480))
