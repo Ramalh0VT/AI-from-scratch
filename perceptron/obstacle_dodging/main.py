@@ -1,6 +1,7 @@
 import random
 import time
 import pygame
+import math
 
 class bot:
     def __init__(self, weights, pos, to_id):
@@ -10,8 +11,7 @@ class bot:
         self.alive = True
         self.sum_results = []
     
-    #Both neuron sum and final sum are included in the below function
-     
+    #Both neuron sum ,final sum AND sigmoid function are included in the below function
     def complete_sum(self, inputs):
         current_sum = 0
         final_sum = 0
@@ -21,15 +21,16 @@ class bot:
                 sum_results.append(current_sum)
             current_sum = 0
         for sum_result in sum_results:
+            final_sum += sum_result
+        return 1 / (1 + math.exp(-final_sum))
 
-        
-                
     def step_function(self, final_sum):
         if final_sum >= 0.9:
             return 1
         elif final_sum < 0.9:
             return 0
 
+new_bot = bot()
 
 pygame.init()
 screen = pygame.display.set_mode((640,480))
@@ -49,9 +50,6 @@ for cur_id in range(500):
         "weights": f'{getattr(cur_bot, "weights")}'
         })
     cur_weights = []
-
-print(bots_array)
-
 
 while running:
     for event in pygame.event.get():
