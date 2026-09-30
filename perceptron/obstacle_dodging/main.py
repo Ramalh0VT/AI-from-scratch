@@ -14,11 +14,15 @@ class bot:
      
     def complete_sum(self, inputs):
         current_sum = 0
-        for neuron in neurons:
+        final_sum = 0
+        for neuron in self.neurons:
             for weight in neuron:
                 current_sum = weight * inputs[0] + weight * inputs[1]
                 sum_results.append(current_sum)
             current_sum = 0
+        for sum_result in sum_results:
+
+        
                 
     def step_function(self, final_sum):
         if final_sum >= 0.9:
