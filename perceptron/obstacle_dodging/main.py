@@ -38,7 +38,7 @@ for _ in range(5):
     current_tnv = []
 print(test_neurons)
 
-new_bot = bot([[-72,92], [9, -39], [-500, -583],[120, 300],[942, 938]], pygame.Vector2(0,0), 1)
+new_bot = bot(test_neurons, pygame.Vector2(0,0), 1)
 final_sum_test = new_bot.complete_sum([30,10])
 print(final_sum_test)
 
