@@ -18,9 +18,11 @@ class bot:
             for weight in neuron:
                 current_sum = weight * inputs[0] + weight * inputs[1]
                 self.sum_results.append(current_sum)
+                print(f'Current sum: ${current_sum}')
             current_sum = 0
         for sum_result in self.sum_results:
             final_sum += sum_result
+        print(f'Final sum: ${final_sum}')
         return 1 / (1 + math.exp(-final_sum))
 
     def step_function(self, final_sum):
@@ -39,7 +41,7 @@ for _ in range(5):
 print(test_neurons)
 
 new_bot = bot(test_neurons, pygame.Vector2(0,0), 1)
-final_sum_test = new_bot.complete_sum([30,10])
+final_sum_test = new_bot.complete_sum([random.randint(0,10000),random.randint(0,50)])
 print(final_sum_test)
 
 
