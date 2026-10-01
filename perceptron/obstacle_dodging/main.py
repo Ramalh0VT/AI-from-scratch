@@ -38,7 +38,6 @@ class bot:
         else:
             return 0
 
-
 pygame.init()
 screen = pygame.display.set_mode((640,480))
 clock = pygame.time.Clock()
@@ -54,7 +53,7 @@ for cur_id in range(500):
     cur_bot = bot(cur_weights, pygame.Vector2(0,0), cur_id +1)
     bots_array.append({
         "id": f'{getattr(cur_bot, "id")}',
-        "weights": f'{getattr(cur_bot, "neurons")}'
+        "neurons": f'{getattr(cur_bot, "neurons")}'
         })
     cur_weights = []
 
