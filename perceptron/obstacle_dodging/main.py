@@ -12,13 +12,13 @@ class bot:
         self.sum_results = []
     #Both neuron sum ,final sum AND sigmoid function are included in the below function
     def complete_sum(self, inputs):
-        current_sum = 0
+        neuron_sum = 0
         final_sum = 0
         for neuron in self.neurons:
             for weight in neuron:
-                current_sum = weight * inputs[0] + weight * inputs[1]
-                self.sum_results.append(current_sum)
-                print(f'Current sum: ${current_sum}')
+                neuron_sum = weight * inputs[0] + weight * inputs[1]
+                self.sum_results.append(neuron_sum)
+                print(f'Neuron sum: ${neuron_sum}')
             current_sum = 0
         for sum_result in self.sum_results:
             final_sum += sum_result
