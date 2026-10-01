@@ -23,7 +23,7 @@ class bot:
         for sum_result in self.sum_results:
             final_sum += sum_result
         print(f'Final sum: ${final_sum}')
-        return 1 / (1 + math.exp(-final_sum))
+        return sum_complete 1 / (1 + math.exp(-final_sum))
 
     def step_function(self, final_sum):
         if final_sum >= 0.9:
