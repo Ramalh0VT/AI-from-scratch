@@ -24,6 +24,7 @@ class bot:
         for sum_result in self.sum_results:
             final_sum += sum_result
         print(f'Final sum: ${final_sum}')
+        #sigmoid needs a fix btw and i have an idea, which is to divide it's result by 1000
         try:
             sum_complete = 1 / (1 + math.exp(-final_sum))
         except:
