@@ -25,6 +25,7 @@ class bot:
             final_sum += sum_result
         print(f'Final sum: ${final_sum}')
         #sigmoid needs a fix btw and i have an idea, which is to divide it's result by 1000
+        sum_complete /= 100000
         try:
             sum_complete = 1 / (1 + math.exp(-final_sum))
         except:
@@ -38,6 +39,22 @@ class bot:
             return 0
         else:
             return 0
+
+# FOR TESTS ONLY
+
+test_neurons = []
+current_tnv = []
+for _ in range(5):
+    for __ in range(2):
+        current_tnv.append(random.randint(-1000,1000))
+    test_neurons.append(current_tnv)
+    current_tnv = []
+print(test_neurons)
+
+new_bot = bot(test_neurons, pygame.Vector2(0,0), 1)
+final_sum_test = new_bot.complete_sum([random.randint(0,10000),random.randint(0,50)])
+print(final_sum_test)
+
 
 pygame.init()
 screen = pygame.display.set_mode((640,480))
