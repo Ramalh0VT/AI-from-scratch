@@ -34,9 +34,9 @@ class bot:
         return sum_complete 
 
     def step_function(self, final_sum):
-        if final_sum == 1:
+        if final_sum >= 0.6:
             return 1
-        elif final_sum == 0:
+        elif final_sum < 0.6:
             return 0
         else:
             return 0
@@ -55,6 +55,7 @@ print(test_neurons)
 new_bot = bot(test_neurons, pygame.Vector2(0,0), 1)
 final_sum_test = new_bot.complete_sum([random.randint(0,10000),random.randint(0,50)])
 print(final_sum_test)
+print(new_bot.step_function(final_sum_test))
 
 quit()
 
