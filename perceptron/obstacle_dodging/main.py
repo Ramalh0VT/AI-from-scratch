@@ -57,8 +57,6 @@ final_sum_test = new_bot.complete_sum([random.randint(0,10000),random.randint(0,
 print(final_sum_test)
 print(new_bot.step_function(final_sum_test))
 
-quit()
-
 pygame.init()
 screen = pygame.display.set_mode((640,480))
 clock = pygame.time.Clock()
@@ -67,7 +65,6 @@ dt = 0
 
 bots_array = []
 cur_weights = []
-
 for cur_id in range(500):
     for _ in range(2):
         cur_weights.append(random.randint(-1000,1000))
@@ -77,6 +74,7 @@ for cur_id in range(500):
         "neurons": f'{getattr(cur_bot, "neurons")}'
         })
     cur_weights = []
+print(bots_array)
 
 while running:
     for event in pygame.event.get():
