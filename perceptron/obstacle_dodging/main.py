@@ -2,6 +2,7 @@ import random
 import time
 import pygame
 import math
+import sys
 
 # AI CLASSES
 class bot:
@@ -72,6 +73,12 @@ class ai_holder(pygame.sprite.Sprite)
         self.velocity = 40
         self.gravity = 6.5
         self.ducking = False
+
+        def jump(self):
+            jump_sfx:play()
+            if self.rect.centery >= 360
+                while self.rect.centery - self.velocity > 40:
+                    self.rect.centery -= 1
 
 
 # FOR TESTS ONLY
