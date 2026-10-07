@@ -55,7 +55,11 @@ class cloud(pygame.sprite.Sprite):
             self.rect.x -= 1
 #the dinossaurs that will be in the game
 class ai_holder(pygame.sprite.Sprite)
-    def __init__
+    def __init__(self, x_pos, y_pos):
+        super().__init__()
+        self.running_sprites = []
+        self.ducking_sprites = []
+
 
 
 # FOR TESTS ONLY
