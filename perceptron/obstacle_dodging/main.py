@@ -3,6 +3,8 @@ import time
 import pygame
 import math
 
+# AI CLASSES
+
 class bot:
     def __init__(self, neurons, pos, to_id):
         self.neurons = neurons
@@ -40,7 +42,7 @@ class bot:
             return 0
         else:
             return 0
-
+# GAME OBJECTS CLASSES
 
 # FOR TESTS ONLY
 test_neurons = []
@@ -62,6 +64,8 @@ screen = pygame.display.set_mode((640,480))
 clock = pygame.time.Clock()
 running = True
 dt = 0
+
+pygame.display.set_caption("AI dinossaur game")
 
 bots_array = []
 cur_weights = []
