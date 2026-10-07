@@ -58,9 +58,11 @@ class ai_holder(pygame.sprite.Sprite)
     def __init__(self, x_pos, y_pos):
         super().__init__()
         self.running_sprites = []
-        self.ducking_sprites = []
-
-
+        self.ducking_sprites = [] 
+        self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino1.png"), (80,100)))
+        self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino2.png"), (80,100)))
+        self.ducking_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoDucking1.png"), (110,60)))
+        self.ducking_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoDucking2.png"), (110,60)))
 
 # FOR TESTS ONLY
 test_neurons = []
