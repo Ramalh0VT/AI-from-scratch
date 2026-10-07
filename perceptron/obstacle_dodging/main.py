@@ -4,7 +4,6 @@ import pygame
 import math
 
 # AI CLASSES
-
 class bot:
     def __init__(self, neurons, pos, to_id):
         self.neurons = neurons
@@ -43,6 +42,21 @@ class bot:
         else:
             return 0
 # GAME OBJECTS CLASSES
+
+class cloud(pygame.sprite.Sprite):
+    def __init__(self,image,x_pos,y_pos):
+        super().__init__()
+        self.image = image
+        self.x_pos = x_pos
+        self.y_pos = y_pos
+        self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
+
+        def update(self):
+            self.rect.x -= 1
+#the dinossaurs that will be in the game
+class ai_holder(pygame.sprite.Sprite)
+    def __init__
+
 
 # FOR TESTS ONLY
 test_neurons = []
