@@ -5,59 +5,16 @@ import math
 import sys
 
 # AI CLASSES
-class bot:
-    def __init__(self, neurons, pos, to_id):
+class bot(pygame.sprite.Sprite):
+    def __init__(self, neurons, x_pos, y_pos, to_id): 
+        super().__init__()
         self.neurons = neurons
-        self.pos = pos
+        self.x_pos = x_pos
+        self.y_pos = y_pos
         self.id = to_id
         self.alive = True
         self.sum_results = []
-    #Both neuron sum ,final sum AND sigmoid function are included in the below function
-    def complete_sum(self, inputs):
-        neuron_sum = 0
-        final_sum = 0
-        sum_complete = 0
-        for neuron in self.neurons:
-            for weight in neuron:
-                neuron_sum = weight * inputs[0] + weight * inputs[1]
-                self.sum_results.append(neuron_sum)
-                print(f'Neuron sum: ${neuron_sum}')
-            current_sum = 0
-        for sum_result in self.sum_results:
-            final_sum += sum_result
-        print(f'Final sum: ${final_sum}')
-        #sigmoid needs a fix btw and i have an idea, which is to divide it's result by 1000
-        final_sum = final_sum / 1000000
-        print(final_sum)
-        try:
-            sum_complete = 1 / (1 + math.exp(-final_sum))
-        except:
-            sum_complete = 0
-        return sum_complete 
-
-    def step_function(self, final_sum):
-        if final_sum >= 0.6:
-            return 1
-        elif final_sum < 0.6:
-            return 0
-        else:
-            return 0
-# GAME OBJECTS CLASSES
-
-class cloud(pygame.sprite.Sprite):
-    def __init__(self,image,x_pos,y_pos):
-        super().__init__()
-        self.image = image
-        self.x_pos = x_pos
-        self.y_pos = y_pos
-        self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
-
-        def update(self):
-            self.rect.x -= 1
-#the dinossaurs that will be in the game
-class ai_holder(pygame.sprite.Sprite)
-    def __init__(self, x_pos, y_pos):
-        super().__init__()
+        
         self.running_sprites = []
         self.benting_sprites = [] 
         self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino1.png"), (80,100)))
@@ -65,8 +22,6 @@ class ai_holder(pygame.sprite.Sprite)
         self.benting_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoBenting1.png"), (110,60)))
         self.benting_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoBenting2.png"), (110,60)))
 
-        self.x_pos = x_pos
-        self.y_pos = y_pos
         self.current_image = 0
         self.image = running_sprites[self.current_image]
         self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
@@ -100,9 +55,50 @@ class ai_holder(pygame.sprite.Sprite)
                 self.image = self.benting_sprites[int(self.current_image)]
             else:
                 self.image = self.running_sprites[int(self.current_image)]
+    # LOGIC FOR APPLYING WEIGHTS / STEP FUNCTIONING
+    #Both neuron sum ,final sum AND sigmoid function are included in the below function
+    def complete_sum(self, inputs):
+        neuron_sum = 0
+        final_sum = 0
+        sum_complete = 0
+        for neuron in self.neurons:
+            for weight in neuron:
+                neuron_sum = weight * inputs[0] + weight * inputs[1]
+                self.sum_results.append(neuron_sum)
+                print(f'Neuron sum: ${neuron_sum}')
+            current_sum = 0
+        for sum_result in self.sum_results:
+            final_sum += sum_result
+        print(f'Final sum: ${final_sum}')
+        #sigmoid needs a fix btw and i have an idea, which is to divide it's result by 1000
+        final_sum = final_sum / 1000000
+        print(final_sum)
+        try:
+            sum_complete = 1 / (1 + math.exp(-final_sum))
+        except:
+            sum_complete = 0
+        return sum_complete 
 
+    def step_function(self, final_sum):
+        if final_sum >= 0.6:
+            return 1
+        elif final_sum < 0.6:
+            return 0
+        else:
+            return 0
 
+# GAME OBJECTS CLASSES
 
+class cloud(pygame.sprite.Sprite):
+    def __init__(self,image,x_pos,y_pos):
+        super().__init__()
+        self.image = image
+        self.x_pos = x_pos
+        self.y_pos = y_pos
+        self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
+
+        def update(self):
+            self.rect.x -= 1
 
 # FOR TESTS ONLY
 test_neurons = []
