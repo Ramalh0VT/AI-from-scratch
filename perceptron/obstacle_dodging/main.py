@@ -59,11 +59,11 @@ class ai_holder(pygame.sprite.Sprite)
     def __init__(self, x_pos, y_pos):
         super().__init__()
         self.running_sprites = []
-        self.ducking_sprites = [] 
+        self.benting_sprites = [] 
         self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino1.png"), (80,100)))
         self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino2.png"), (80,100)))
-        self.ducking_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoDucking1.png"), (110,60)))
-        self.ducking_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoDucking2.png"), (110,60)))
+        self.benting_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoBenting1.png"), (110,60)))
+        self.benting_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoBenting2.png"), (110,60)))
 
         self.x_pos = x_pos
         self.y_pos = y_pos
@@ -72,13 +72,17 @@ class ai_holder(pygame.sprite.Sprite)
         self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
         self.velocity = 40
         self.gravity = 6.5
-        self.ducking = False
+        self.bented = False
 
         def jump(self):
             jump_sfx:play()
             if self.rect.centery >= 360
                 while self.rect.centery - self.velocity > 40:
                     self.rect.centery -= 1
+        def bent(self):
+            self.benting = False
+            self.rect.centery = 380
+        
 
 
 # FOR TESTS ONLY
