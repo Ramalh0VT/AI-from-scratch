@@ -80,9 +80,28 @@ class ai_holder(pygame.sprite.Sprite)
                 while self.rect.centery - self.velocity > 40:
                     self.rect.centery -= 1
         def bent(self):
-            self.benting = False
+            self.benting = True
             self.rect.centery = 380
         
+        def unbent(self):
+            self.benting = False
+            self.rect.centery = 360
+
+        def fall(self):
+            if self.rect.centery <= 360:
+                self.rect.centery += self.gravity
+
+        def apply_animations(self):
+            self.current_image += 0.05
+            if self.current_image >= 2:
+                self.current_image = 0
+
+            if self.benting:
+                self.image = self.benting_sprites[int(self.current_image)]
+            else:
+                self.image = self.running_sprites[int(self.current_image)]
+
+
 
 
 # FOR TESTS ONLY
