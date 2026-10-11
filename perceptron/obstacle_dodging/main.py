@@ -100,6 +100,11 @@ class cloud(pygame.sprite.Sprite):
         def update(self):
             self.rect.x -= 1
 
+class cactus(pygame.sprite.Sprite):
+    def __init__(self, x_pos, y_pos):
+        super().__init__
+
+
 # FOR TESTS ONLY
 test_neurons = []
 current_tnv = []
