@@ -3,6 +3,15 @@ import time
 import pygame
 import math
 import sys
+#Variables used across the code
+game_speed = 4
+jump_count = 10
+player_score = 0
+end = False
+obstacle_timer = 0
+obstacle_spawn = False
+obstacle_cooldown = 800
+
 
 # AI CLASSES
 class bot(pygame.sprite.Sprite):
@@ -135,8 +144,9 @@ screen = pygame.display.set_mode((640,480))
 clock = pygame.time.Clock()
 running = True
 dt = 0
+font = pygame.font.Font("assets/PressStart2P-Regular.ttf", 14)
 
-pygame.display.set_caption("AI dinossaur game")
+pygame.display.set_caption("AI dinossaur training")
 
 bots_array = []
 cur_weights = []
