@@ -6,7 +6,7 @@ import sys
 #Variables used across the code
 game_speed = 4
 jump_count = 10
-player_score = 0
+    player_score = 0
 end = False
 obstacle_timer = 0
 obstacle_spawn = False
@@ -123,6 +123,12 @@ class cactus(pygame.sprite.Sprite):
     def update(self):
         self.x_pos -= game_speed
         self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
+
+class ptero(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.x_pos = 650
+        self.y_pos = random.choice([])
 
 
 
