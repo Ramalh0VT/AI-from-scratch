@@ -3,7 +3,8 @@ import time
 import pygame
 import math
 import sys
-#Variables used across the code
+#Variables and assets used across the code
+
 game_speed = 4
 jump_count = 10
     player_score = 0
@@ -12,6 +13,8 @@ obstacle_timer = 0
 obstacle_spawn = False
 obstacle_cooldown = 800
 
+ground = pygame.image.load("assets/ground.png")
+ground = pygame.transform.scale(ground,(640, 480))
 
 # AI CLASSES
 class bot(pygame.sprite.Sprite):
@@ -79,7 +82,6 @@ class bot(pygame.sprite.Sprite):
         for sum_result in self.sum_results:
             final_sum += sum_result
         print(f'Final sum: ${final_sum}')
-        #sigmoid needs a fix btw and i have an idea, which is to divide it's result by 1000
         final_sum = final_sum / 1000000
         print(final_sum)
         try:
@@ -138,6 +140,14 @@ class ptero(pygame.sprite.Sprite):
     
     def update(self):
         self.animate()
+        self.x_pos -= game_speed
+        self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
+
+    def animate(self):
+        self.current_image += 0.025
+        if self.current_image >= 2:
+            self.current_image = 0
+        self.image = self.sprites[int(self.current_image)]
 
 
 
