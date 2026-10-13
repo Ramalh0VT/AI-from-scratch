@@ -167,15 +167,12 @@ class ptero(pygame.sprite.Sprite):
             self.current_image = 0
         self.image = self.sprites[int(self.current_image)]
 
-
-
-# FOR TESTS ONLY
-
+#bot generator
 
 bots_array = []
 cur_weights = []
 for cur_id in range(500):
-    for _ in range(2):
+    for _ in range(5):
         cur_weights.append(random.randint(-1000,1000))
     cur_bot = bot(cur_weights, pygame.Vector2(0,0), cur_id +1)
     bots_array.append({
