@@ -171,16 +171,19 @@ class ptero(pygame.sprite.Sprite):
 
 bots_array = []
 cur_weights = []
+cur_neuron_weights = []
 for cur_id in range(500):
-    for _ in range(1,5):
-        for _ in range(1,2)
-        cur_weights.append(random.randint(-1000,1000))
-    cur_bot = bot(cur_weights, pygame.Vector2(0,0), cur_id +1)
+    for _ in range(5):
+        for _ in range(2):
+            cur_weights.append(random.randint(-1000,1000))
+        cur_neuron_weights.append(cur_weights)
+        cur_weights = []
+    cur_bot = bot(cur_neuron_weights, pygame.Vector2(0,0), cur_id +1)
     bots_array.append({
         "id": f'{getattr(cur_bot, "id")}',
         "neurons": f'{getattr(cur_bot, "neurons")}'
         })
-    cur_weights = []
+    cur_neuron_weights = []
 print(bots_array)
 
 while running:
