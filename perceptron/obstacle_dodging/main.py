@@ -15,7 +15,8 @@ obstacle_cooldown = 800
 
 ground = pygame.image.load("assets/ground.png")
 ground = pygame.transform.scale(ground,(640, 480))
-
+ground_x = 0
+ground_rect = ground.get_rect(center=(320,200))
 # AI CLASSES
 class bot(pygame.sprite.Sprite):
     def __init__(self, neurons, x_pos, y_pos, to_id): 
