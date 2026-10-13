@@ -5,6 +5,15 @@ import math
 import sys
 #Variables and assets used across the code
 
+pygame.init()
+screen = pygame.display.set_mode((640,480))
+clock = pygame.time.Clock()
+running = True
+dt = 0
+font = pygame.font.Font("assets/PressStart2P-Regular.ttf", 14)
+
+pygame.display.set_caption("AI dinossaur training")
+
 game_speed = 4
 jump_count = 10
     player_score = 0
@@ -161,28 +170,7 @@ class ptero(pygame.sprite.Sprite):
 
 
 # FOR TESTS ONLY
-test_neurons = []
-current_tnv = []
-for _ in range(5):
-    for __ in range(2):
-        current_tnv.append(random.randint(-1000,1000))
-    test_neurons.append(current_tnv)
-    current_tnv = []
-print(test_neurons)
 
-new_bot = bot(test_neurons, pygame.Vector2(0,0), 1)
-final_sum_test = new_bot.complete_sum([random.randint(0,10000),random.randint(0,50)])
-print(final_sum_test)
-print(new_bot.step_function(final_sum_test))
-
-pygame.init()
-screen = pygame.display.set_mode((640,480))
-clock = pygame.time.Clock()
-running = True
-dt = 0
-font = pygame.font.Font("assets/PressStart2P-Regular.ttf", 14)
-
-pygame.display.set_caption("AI dinossaur training")
 
 bots_array = []
 cur_weights = []
