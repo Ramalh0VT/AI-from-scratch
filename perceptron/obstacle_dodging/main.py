@@ -95,13 +95,10 @@ class bot(pygame.sprite.Sprite):
             for weight in neuron:
                 neuron_sum = weight * inputs[0] + weight * inputs[1]
                 self.sum_results.append(neuron_sum)
-                print(f'Neuron sum: ${neuron_sum}')
             current_sum = 0
         for sum_result in self.sum_results:
             final_sum += sum_result
-        print(f'Final sum: ${final_sum}')
         final_sum = final_sum / 1000000
-        print(final_sum)
         try:
             sum_complete = 1 / (1 + math.exp(-final_sum))
         except:
@@ -183,7 +180,7 @@ for cur_id in range(500):
         "id": f'{getattr(cur_bot, "id")}',
         "neurons": f'{getattr(cur_bot, "neurons")}'
         })
-
+    ai_group.add(cur_bot)
     cur_neuron_weights = []
 print(bots_array)
 
