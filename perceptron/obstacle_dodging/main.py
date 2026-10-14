@@ -178,11 +178,12 @@ for cur_id in range(500):
             cur_weights.append(random.randint(-1000,1000))
         cur_neuron_weights.append(cur_weights)
         cur_weights = []
-    cur_bot = bot(cur_neuron_weights, pygame.Vector2(0,0), cur_id +1)
+    cur_bot = bot(cur_neuron_weights,40,180, cur_id +1)
     bots_array.append({
         "id": f'{getattr(cur_bot, "id")}',
         "neurons": f'{getattr(cur_bot, "neurons")}'
         })
+
     cur_neuron_weights = []
 print(bots_array)
 
