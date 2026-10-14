@@ -184,6 +184,17 @@ for cur_id in range(500):
     cur_neuron_weights = []
 print(bots_array)
 
+#sound effects
+
+death_sound = pygame.mixer.sound("assets/sfx/lose.mp3")
+jump_sound = pygame.mixer.sound("assets/sfx/jump.mp3")
+point_sound = pygame.mixer.sound("assets/sfx/100points.mp3")
+
+CLOUD_EVENT = pygame.USEREVENT
+pygame.time.set_timer(CLOUD_EVENT,300)
+
+
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
