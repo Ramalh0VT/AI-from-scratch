@@ -6,7 +6,7 @@ import sys
 #Variables and assets used across the code
 
 pygame.init()
-screen = pygame.display.set_mode((640,480))
+screen = pygame.display.set_mode((640,360))
 clock = pygame.time.Clock()
 running = True
 dt = 0
@@ -23,7 +23,7 @@ obstacle_spawn = False
 obstacle_cooldown = 800
 
 ground = pygame.image.load("assets/ground.png")
-ground = pygame.transform.scale(ground,(640, 480))
+ground = pygame.transform.scale(ground,(640, 360))
 ground_x = 0
 ground_rect = ground.get_rect(center=(320,200))
 cloud = pygame.image.load("assets/cloud.png")
@@ -193,6 +193,13 @@ point_sound = pygame.mixer.sound("assets/sfx/100points.mp3")
 CLOUD_EVENT = pygame.USEREVENT
 pygame.time.set_timer(CLOUD_EVENT,300)
 
+# functions
+
+def end_game():
+    global player_score, game_speed
+    game_over_text = game_font.render("Game over!", True, "black")
+    game_over_rect = game_over_text.get_rect(center=(320,150))
+    score_text = game_font.render(f"Score: {int(player_score)}")
 
 
 while running:
