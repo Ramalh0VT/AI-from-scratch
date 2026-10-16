@@ -87,7 +87,7 @@ class bot(pygame.sprite.Sprite):
                 self.image = self.running_sprites[int(self.current_image)]
     # LOGIC FOR APPLYING WEIGHTS / STEP FUNCTIONING
     #Both neuron sum ,final sum AND sigmoid function are included in the below function
-    def complete_sum(self, inputs):
+    def complete_sum_jump(self, inputs):
         neuron_sum = 0
         final_sum = 0
         sum_complete = 0
@@ -105,13 +105,41 @@ class bot(pygame.sprite.Sprite):
             sum_complete = 0
         return sum_complete 
 
-    def step_function(self, final_sum):
+    def step_function_jump(self, final_sum):
         if final_sum >= 0.6:
             return 1
         elif final_sum < 0.6:
             return 0
         else:
             return 0
+
+    def complete_sum_benting(self, inputs):
+        neuron_sum = 0
+        final_sum = 0
+        sum_complete = 0
+        for neuron in self.neurons:
+            for weight in neuron:
+                neuron_sum = weight * inputs[0] + weight * inputs[1]
+                self.sum_results.append(neuron_sum)
+            current_sum = 0
+        for sum_result in self.sum_results:
+            final_sum += sum_result
+        final_sum = final_sum / 1000000
+        try:
+            sum_complete = 1 / (1 + math.exp(-final_sum))
+        except:
+            sum_complete = 0
+        return sum_complete 
+
+    def step_function_benting(self, final_sum):
+        if final_sum >= 0.6:
+            return 1
+        elif final_sum < 0.6:
+            return 0
+        else:
+            return 0
+
+    
 
 # GAME OBJECTS CLASSES
 
@@ -168,20 +196,22 @@ class ptero(pygame.sprite.Sprite):
 
 bots_array = []
 cur_weights = []
-cur_neuron_weights = []
+cur_layer_weights = []
+final_append = []
 for cur_id in range(500):
-    for _ in range(5):
-        for _ in range(2):
-            cur_weights.append(random.randint(-1000,1000))
-        cur_neuron_weights.append(cur_weights)
-        cur_weights = []
-    cur_bot = bot(cur_neuron_weights,40,180, cur_id +1)
-    bots_array.append({
-        "id": f'{getattr(cur_bot, "id")}',
-        "neurons": f'{getattr(cur_bot, "neurons")}'
-        })
-    ai_group.add(cur_bot)
-    cur_neuron_weights = []
+    for _ in range(2):
+        for _ in range(5):
+            for _ in range(2):
+                cur_weights.append(random.randint(-1000,1000))
+            cur_neuron_weights.append(cur_weights)
+            cur_weights = []
+        cur_bot = bot(cur_neuron_weights,40,180, cur_id +1)
+        bots_array.append({
+            "id": f'{getattr(cur_bot, "id")}',
+            "neurons": f'{getattr(cur_bot, "neurons")}'
+            })
+        ai_group.add(cur_bot)
+        cur_neuron_weights = []
 print(bots_array)
 
 #sound effects
@@ -207,6 +237,8 @@ def last_ai_killed():
         game_speed = 5
         cloud_group.empty()
         obstacle_group.empty()
+# insert here code to make the best ai weights save in maybe a json
+        
     else:
         print("This shoulden't be printed and it means there is something wrong with the ai saving system")
 
@@ -214,6 +246,7 @@ def last_ai_killed():
 
 
 while running:
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
            running = False
@@ -221,5 +254,7 @@ while running:
     pygame.display.flip()
     dt = clock.tick(60) / 1000
 pygame.quit()
+sys.exit()
+
 
 
