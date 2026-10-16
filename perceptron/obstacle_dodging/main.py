@@ -198,6 +198,7 @@ bots_array = []
 cur_neuron_weights = []
 cur_layer_weights = []
 final_neurons_weights = []
+
 for cur_id in range(500):
     for _ in range(2):
         for _ in range(5):
@@ -206,15 +207,15 @@ for cur_id in range(500):
             cur_layer_weights.append(cur_neuron_weights)
             cur_neuron_weights = []
             final_neurons_weights.append(cur_layer_weights)
-    cur_layer_weights = []            
+        cur_layer_weights = []            
             cur_weights = []
-    cur_bot = bot(final_append,40,180, cur_id +1)
+    cur_bot = bot(final_neurons_weights,40,180, cur_id +1)
     bots_array.append({
         "id": f'{getattr(cur_bot, "id")}',
         "neurons": f'{getattr(cur_bot, "neurons")}'
         })
     ai_group.add(cur_bot)
-        cur_neuron_weights = []
+    final_neurons_weights = []
 print(bots_array)
 
 #sound effects
