@@ -61,7 +61,7 @@ class bot(pygame.sprite.Sprite):
 
         def jump(self):
             jump_sfx:play()
-            if self.rect.centery >= 360
+            if self.rect.centery >= 360:
                 while self.rect.centery - self.velocity > 40:
                     self.rect.centery -= 1
         def bent(self):
