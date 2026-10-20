@@ -230,7 +230,7 @@ pygame.time.set_timer(CLOUD_EVENT,300)
 # functions
 
 def last_ai_killed():
-    if len(bots_array) == 1:
+    if len(bots_array) <= 1:
         global best_ai_score, game_speed
         game_over_text = game_font.render("That was the last one!", True, "black")
         game_over_rect = game_over_text.get_rect(center=(320,150))
@@ -243,8 +243,6 @@ def last_ai_killed():
         obstacle_group.empty()
 # insert here code to make the best ai weights save in maybe a json
         
-    else:
-        print("This shoulden't be printed and it means there is something wrong with the ai saving system")
 
 
 
