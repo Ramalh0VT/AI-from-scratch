@@ -53,7 +53,7 @@ class bot(pygame.sprite.Sprite):
         self.benting_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoBenting2.png"), (110,60)))
 
         self.current_image = 0
-        self.image = running_sprites[self.current_image]
+        self.image = self.running_sprites[self.current_image]
         self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
         self.velocity = 40
         self.gravity = 6.5
