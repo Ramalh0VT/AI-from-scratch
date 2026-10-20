@@ -248,12 +248,16 @@ def last_ai_killed():
 
 
 while running:
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
            running = False
+        if event.type == CLOUD_EVENT:
+            current_cloud_y = randint(25,150)
+            current_cloud = cloud(cloud,690, current_cloud_y)
+            cloud_group.add(current_cloud)
     screen.fill("white")
-    pygame.display.flip()
+    # i still don't know surely how i'll kill an ai if pygame.spritecollide(ai_group.sprite,obstacle_group, False):        
+
     dt = clock.tick(60) / 1000
 pygame.quit()
 sys.exit()
