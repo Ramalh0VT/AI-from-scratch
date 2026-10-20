@@ -16,7 +16,7 @@ pygame.display.set_caption("AI dinossaur training")
 
 game_speed = 4
 jump_count = 10
-    player_score = 0
+player_score = 0
 end = False
 obstacle_timer = 0
 obstacle_spawn = False
