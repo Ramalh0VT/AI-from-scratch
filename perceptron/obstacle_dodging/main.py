@@ -206,9 +206,8 @@ for cur_id in range(500):
                 cur_neuron_weights.append(random.randint(-1000,1000))
             cur_layer_weights.append(cur_neuron_weights)
             cur_neuron_weights = []
-            final_neurons_weights.append(cur_layer_weights)
+        final_neurons_weights.append(cur_layer_weights)
         cur_layer_weights = []            
-            cur_weights = []
     cur_bot = bot(final_neurons_weights,40,180, cur_id +1)
     bots_array.append({
         "id": f'{getattr(cur_bot, "id")}',
