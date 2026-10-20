@@ -24,6 +24,7 @@ obstacle_cooldown = 800
 
 ground = pygame.image.load("assets/ground.png")
 ground = pygame.transform.scale(ground,(640, 360))
+print(ground)
 ground_x = 0
 ground_rect = ground.get_rect(center=(320,200))
 cloud = pygame.image.load("assets/cloud.png")
@@ -215,13 +216,13 @@ for cur_id in range(500):
         })
     ai_group.add(cur_bot)
     final_neurons_weights = []
-print(bots_array)
+print(bots_array[0])
 
 #sound effects
 
-death_sound = pygame.mixer.sound("assets/sfx/lose.mp3")
-jump_sound = pygame.mixer.sound("assets/sfx/jump.mp3")
-point_sound = pygame.mixer.sound("assets/sfx/100points.mp3")
+death_sound = pygame.mixer.Sound("assets/sfx/lose.mp3")
+jump_sound = pygame.mixer.Sound("assets/sfx/jump.mp3")
+point_sound = pygame.mixer.Sound("assets/sfx/100points.mp3")
 
 CLOUD_EVENT = pygame.USEREVENT
 pygame.time.set_timer(CLOUD_EVENT,300)
@@ -229,7 +230,7 @@ pygame.time.set_timer(CLOUD_EVENT,300)
 # functions
 
 def last_ai_killed():
-    if len(bots_array) <= 1:
+    if len(bots_array) <= 10:
         global best_ai_score, game_speed
         game_over_text = game_font.render("That was the last one!", True, "black")
         game_over_rect = game_over_text.get_rect(center=(320,150))
