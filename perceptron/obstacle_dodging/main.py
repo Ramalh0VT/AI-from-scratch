@@ -282,6 +282,19 @@ while running:
                 obstacle_group.add(new_obstacle)
                 obstacle_timer = pygame.time.get_ticks()
                 obstacle_spawn = False
+            
+    best_ai_score += 0.1
+    best_ai_score_surface = game_font.render(str(int(best_ai_score)), True, ("Black"))
+    screen.blit(best_ai_score_surface,(575,5))
+
+    cloud_group.update()
+    cloud_group.draw(screen)
+            
+    ptero_group.update()
+    ptero_group.draw(screen)
+
+    obstacle_group.update()
+    obstacle_group.draw(screen)
 
                 
 
