@@ -16,7 +16,7 @@ pygame.display.set_caption("AI dinossaur training")
 
 game_speed = 4
 jump_count = 10
-player_score = 0
+best_ai_score = 0
 end = False
 obstacle_timer = 0
 obstacle_spawn = False
@@ -264,7 +264,7 @@ while running:
         last_ai_killed()
     if not game_over:
         game_speed += 0.0025
-        if round(player_score,1) % 100 == 0 and int(player_score) > 0:
+        if round(best_ai_score,1) % 100 == 0 and int(best_ai_score) > 0:
             point_sfx.play()
 
         if pygame.time.get_ticks() - obstacle_timer >= obstacle_cooldown:
@@ -282,6 +282,7 @@ while running:
                 obstacle_group.add(new_obstacle)
                 obstacle_timer = pygame.time.get_ticks()
                 obstacle_spawn = False
+
                 
 
     dt = clock.tick(60) / 1000
