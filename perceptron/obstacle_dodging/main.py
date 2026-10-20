@@ -267,8 +267,22 @@ while running:
         if round(player_score,1) % 100 == 0 and int(player_score) > 0:
             point_sfx.play()
 
-        if pygame
-
+        if pygame.time.get_ticks() - obstacle_timer >= obstacle_cooldown:
+            obstacle_spawn = True
+        
+        if obstacle_spawn:
+            obstacle_random = random.randint(1,50)
+            if obstacle_random in range(1,7):
+                new_obstacle = cactus(640,170)
+                obstacle_group.add(new_obstacle)
+                obstacle_timer = pygame.time.get_ticks()
+                obstacle_spawn = False
+            elif obstacle_random in range(7,10):
+                new_obstacle = ptero()
+                obstacle_group.add(new_obstacle)
+                obstacle_timer = pygame.time.get_ticks()
+                obstacle_spawn = False
+                
 
     dt = clock.tick(60) / 1000
 pygame.quit()
