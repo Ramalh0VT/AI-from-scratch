@@ -256,7 +256,19 @@ while running:
             current_cloud = cloud(cloud,690, current_cloud_y)
             cloud_group.add(current_cloud)
     screen.fill("white")
-    # i still don't know surely how i'll kill an ai if pygame.spritecollide(ai_group.sprite,obstacle_group, False):        
+    # i still don't know surely how i'll kill an ai 
+    # if pygame.spritecollide(ai_group.sprite,obstacle_group, False):        
+    if len(bots_array) <= 1:
+        game_over = True
+    if game_over:
+        last_ai_killed()
+    if not game_over:
+        game_speed += 0.0025
+        if round(player_score,1) % 100 == 0 and int(player_score) > 0:
+            point_sfx.play()
+
+        if pygame
+
 
     dt = clock.tick(60) / 1000
 pygame.quit()
