@@ -260,7 +260,7 @@ while running:
     # if pygame.spritecollide(ai_group.sprite,obstacle_group, False):        
     if len(bots_array) <= 1:
         game_over = True
-    if game_over:
+    if end:
         last_ai_killed()
     if not game_over:
         game_speed += 0.0025
