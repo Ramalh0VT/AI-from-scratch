@@ -232,9 +232,9 @@ pygame.time.set_timer(CLOUD_EVENT,300)
 def last_ai_killed():
     if len(bots_array) <= 10:
         global best_ai_score, game_speed
-        game_over_text = game_font.render("That was the last one!", True, "black")
+        game_over_text = font.render("That was the last one!", True, "black")
         game_over_rect = game_over_text.get_rect(center=(320,150))
-        score_text = game_font.render(f"Score: {int(best_ai_score)}")
+        score_text = font.render(f"Score: {int(best_ai_score)}")
         score_rect = score_text.get_rect(center=(320, 170))
         screen.blit(game_over_text, game_over_rect)
         screen.blit(score_text, score_rect)
@@ -284,7 +284,7 @@ while running:
                 obstacle_spawn = False
             
     best_ai_score += 0.1
-    best_ai_score_surface = game_font.render(str(int(best_ai_score)), True, ("Black"))
+    best_ai_score_surface = font.render(str(int(best_ai_score)), True, ("Black"))
     screen.blit(best_ai_score_surface,(575,5))
 
     cloud_group.update()
