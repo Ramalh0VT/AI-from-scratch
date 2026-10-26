@@ -259,10 +259,10 @@ while running:
     # i still don't know surely how i'll kill an ai 
     # if pygame.spritecollide(ai_group.sprite,obstacle_group, False):        
     if len(bots_array) <= 1:
-        game_over = True
+        end = True
     if end:
         last_ai_killed()
-    if not game_over:
+    if not end:
         game_speed += 0.0025
         if round(best_ai_score,1) % 100 == 0 and int(best_ai_score) > 0:
             point_sfx.play()
