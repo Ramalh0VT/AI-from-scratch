@@ -27,8 +27,8 @@ ground = pygame.transform.scale(ground,(640, 360))
 print(ground)
 ground_x = 0
 ground_rect = ground.get_rect(center=(320,200))
-cloud = pygame.image.load("assets/cloud.png")
-cloud = pygame.transform.scale(cloud,(100,40))
+cloud_img = pygame.image.load("assets/cloud.png")
+cloud_img = pygame.transform.scale(cloud,(100,40))
 
 cloud_group = pygame.sprite.Group()
 obstacle_group = pygame.sprite.Group()
@@ -253,7 +253,7 @@ while running:
            running = False
         if event.type == CLOUD_EVENT:
             current_cloud_y = random.randint(25,150)
-            current_cloud = cloud(cloud,690, current_cloud_y)
+            current_cloud = cloud(cloud_img,690, current_cloud_y)
             cloud_group.add(current_cloud)
     screen.fill("white")
     # i still don't know surely how i'll kill an ai 
