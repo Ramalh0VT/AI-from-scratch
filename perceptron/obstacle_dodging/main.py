@@ -28,7 +28,7 @@ print(ground)
 ground_x = 0
 ground_rect = ground.get_rect(center=(320,200))
 cloud_img = pygame.image.load("assets/cloud.png")
-cloud_img = pygame.transform.scale(cloud,(100,40))
+cloud_img = pygame.transform.scale(cloud_img,(100,40))
 
 cloud_group = pygame.sprite.Group()
 obstacle_group = pygame.sprite.Group()
