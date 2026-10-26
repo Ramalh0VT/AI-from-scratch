@@ -252,7 +252,7 @@ while running:
         if event.type == pygame.QUIT:
            running = False
         if event.type == CLOUD_EVENT:
-            current_cloud_y = randint(25,150)
+            current_cloud_y = random.randint(25,150)
             current_cloud = cloud(cloud,690, current_cloud_y)
             cloud_group.add(current_cloud)
     screen.fill("white")
