@@ -7,14 +7,13 @@ import sys
 game_speed = 4
 jump_count = 10
 best_ai_score = 0
-end = False
+all_ais_dead = False
 obstacle_timer = 0
 obstacle_spawn = False
 obstacle_cooldown = 800
 
 ground = pygame.image.load("assets/ground.png")
 ground = pygame.transform.scale(ground,(640, 360))
-print(ground)
 ground_x = 0
 ground_rect = ground.get_rect(center=(320,200))
 cloud_img = pygame.image.load("assets/cloud.png")
@@ -25,24 +24,20 @@ obstacle_group = pygame.sprite.Group()
 ptero_group = pygame.sprite.Group()
 ai_group = pygame.sprite.Group()
 
-# AI CLASSES
 class bot(pygame.sprite.Sprite):
-    def __init__(self, neurons, x_pos, y_pos, to_id): 
+    def __init__(self, neurons, x_pos, y_pos, bot_id): 
         super().__init__()
         self.neurons = neurons
         self.x_pos = x_pos
         self.y_pos = y_pos
-        self.id = to_id
+        self.id = bot_id
         self.alive = True
-        self.sum_results = []
-        
         self.running_sprites = []
-        self.benting_sprites = [] 
+        self.benting_sprites = []
         self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino1.png"), (80,100)))
         self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino2.png"), (80,100)))
         self.benting_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoBenting1.png"), (110,60)))
         self.benting_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoBenting2.png"), (110,60)))
-
         self.current_image = 0
         self.image = self.running_sprites[self.current_image]
         self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
@@ -76,8 +71,7 @@ class bot(pygame.sprite.Sprite):
                 self.image = self.benting_sprites[int(self.current_image)]
             else:
                 self.image = self.running_sprites[int(self.current_image)]
-    # LOGIC FOR APPLYING WEIGHTS / STEP FUNCTIONING
-    #Both neuron sum ,final sum AND sigmoid function are included in the below function
+
     def complete_sum_jump(self, inputs):
         neuron_sum = 0
         final_sum = 0
@@ -130,10 +124,6 @@ class bot(pygame.sprite.Sprite):
         else:
             return 0
 
-    
-
-# GAME OBJECTS CLASSES
-
 class cloud(pygame.sprite.Sprite):
     def __init__(self,image,x_pos,y_pos):
         super().__init__()
@@ -183,14 +173,13 @@ class ptero(pygame.sprite.Sprite):
             self.current_image = 0
         self.image = self.sprites[int(self.current_image)]
 
-#bot generator
 
-bots_array = []
+ais_array = []
 cur_neuron_weights = []
 cur_layer_weights = []
-final_neurons_weights = []
+final_neurons = []
 
-for cur_id in range(500):
+for ai_index in range(500):
     for _ in range(2):
         for _ in range(5):
             for _ in range(2):
@@ -199,12 +188,12 @@ for cur_id in range(500):
             cur_neuron_weights = []
         final_neurons_weights.append(cur_layer_weights)
         cur_layer_weights = []            
-    cur_bot = bot(final_neurons_weights,40,180, cur_id +1)
+    cur_ai = bot(final_neurons_weights,40,180, ai_index +1)
     bots_array.append({
         "id": f'{getattr(cur_bot, "id")}',
         "neurons": f'{getattr(cur_bot, "neurons")}'
         })
-    ai_group.add(cur_bot)
+    ai_group.add(cur_ai)
     final_neurons_weights = []
 print(bots_array[0])
 
