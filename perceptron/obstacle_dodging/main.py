@@ -4,14 +4,6 @@ import pygame
 import math
 import sys
 
-screen = pygame.display.set_mode((640,360))
-clock = pygame.time.Clock()
-running = True
-dt = 0
-font = pygame.font.Font("assets/PressStart2P-Regular.ttf", 14)
-
-pygame.display.set_caption("AI dinossaur training")
-
 game_speed = 4
 jump_count = 10
 best_ai_score = 0
@@ -242,8 +234,12 @@ def last_ai_killed():
 # insert here code to make the best ai weights save in maybe a json
         
 
-
-
+screen = pygame.display.set_mode((640,360))
+clock = pygame.time.Clock()
+running = True
+delta_time = 0
+game_font = pygame.font.Font("assets/PressStart2P-Regular.ttf", 14)
+pygame.display.set_caption("AI dinossaur training")
 
 while running:
     for event in pygame.event.get():
