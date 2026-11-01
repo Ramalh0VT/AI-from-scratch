@@ -3,9 +3,7 @@ import time
 import pygame
 import math
 import sys
-#Variables and assets used across the code
 
-pygame.init()
 screen = pygame.display.set_mode((640,360))
 clock = pygame.time.Clock()
 running = True
