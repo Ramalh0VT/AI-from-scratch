@@ -3,6 +3,7 @@ import time
 import pygame
 import math
 import sys
+
 from modules import classes
 
 game_speed = 4
@@ -25,14 +26,15 @@ obstacle_group = pygame.sprite.Group()
 ptero_group = pygame.sprite.Group()
 ai_group = pygame.sprite.Group()
 
-class bot(pygame.sprite.Sprite):
-    def __init__(self, neurons, x_pos, y_pos, bot_id): 
+class ai(pygame.sprite.Sprite):
+    def __init__(self, bot_id): 
         super().__init__()
-        self.neurons = neurons
-        self.x_pos = x_pos
-        self.y_pos = y_pos
+        self.neurons
+        self.x_pos
+        self.y_pos
         self.id = bot_id
         self.alive = True
+    def set_neurons():
         self.running_sprites = []
         self.benting_sprites = []
         self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino1.png"), (80,100)))
