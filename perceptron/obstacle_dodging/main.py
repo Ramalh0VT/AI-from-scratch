@@ -3,6 +3,7 @@ import time
 import pygame
 import math
 import sys
+from modules import classes
 
 game_speed = 4
 jump_count = 10
