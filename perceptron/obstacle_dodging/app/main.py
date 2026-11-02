@@ -27,14 +27,21 @@ ptero_group = pygame.sprite.Group()
 ai_group = pygame.sprite.Group()
 
 class ai(pygame.sprite.Sprite):
+    
     def __init__(self, bot_id): 
         super().__init__()
+        self.id = bot_id
+        self.alive = True
         self.neurons
         self.x_pos
         self.y_pos
-        self.id = bot_id
-        self.alive = True
-    def set_neurons():
+        self.running_sprites = []
+        self.benting_sprites = []
+    
+    def set_neurons(self, neurons):
+        self.neurons = neurons
+    
+
         self.running_sprites = []
         self.benting_sprites = []
         self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino1.png"), (80,100)))
