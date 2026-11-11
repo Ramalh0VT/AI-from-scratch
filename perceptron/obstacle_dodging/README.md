@@ -1,3 +1,7 @@
+# Note
+
+This project wasn't abandoned, it's just that i believe i need to start making simpler neuron networks before i make something of such an scope. And i need to study with more precise methods as well
+
 ## Objective
 
 This is supposed to the similar to the google dinossaur game, but in this case our character will only be able to jump.
