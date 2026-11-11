@@ -21,5 +21,22 @@ App.Main = function(game){
 }
 
 App.Main.prototype = {
+	preload : function(){
+		loadSpriteSheets(this.game);
+		loadGameImages(this.game);
+		loadBitmapFonts(this);
+	}
+}
 
+function loadSpriteSheets(game){
+	game.load.spritesheet('imgBird', 'assets/img_bird.png', 18, 18, 10);
+	game.load.spritesheet('imgTree', 'assets/img_tree.png', 45, 200, 1);
+	game.load.spritesheet('ImgButtons', 'assets/img_buttons.png', 55, 20, 1.5);
+}
+
+function loadGameImages(game){
+	game.load.image('imgTarget', 'assets/img_target.png');	
+	game.load.image('imgGround', 'assets/img_ground.png');
+	game.load.image('imgPause', 'assets/img_pause.png');
+	game.load.image('imgTarget', 'assets/img_target.png');
 }
