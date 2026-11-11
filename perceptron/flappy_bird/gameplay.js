@@ -24,7 +24,7 @@ App.Main.prototype = {
 	preload : function(){
 		loadSpriteSheets(this.game);
 		loadGameImages(this.game);
-		loadBitmapFonts(this);
+		loadBitMapFonts(this);
 	}
 }
 
@@ -39,4 +39,8 @@ function loadGameImages(game){
 	game.load.image('imgGround', 'assets/img_ground.png');
 	game.load.image('imgPause', 'assets/img_pause.png');
 	game.load.image('imgTarget', 'assets/img_target.png');
+}
+
+function loadBitMapFonts(main){
+	main.load
 }
