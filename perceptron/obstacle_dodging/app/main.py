@@ -39,11 +39,7 @@ class ai(pygame.sprite.Sprite):
         self.benting_sprites = []
     
     def set_neurons(self, neurons):
-        self.neurons = neurons
-    
-
-        self.running_sprites = []
-        self.benting_sprites = []
+        self.neurons = neurons 
         self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino1.png"), (80,100)))
         self.running_sprites.append(pygame.transform.scale(pygame.image.load("./assets/Dino2.png"), (80,100)))
         self.benting_sprites.append(pygame.transform.scale(pygame.image.load("./assets/DinoBenting1.png"), (110,60)))
