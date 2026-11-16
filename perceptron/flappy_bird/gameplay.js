@@ -42,5 +42,6 @@ function loadGameImages(game){
 }
 
 function loadBitMapFonts(main){
+	// the order is: name, the png file and the .fnt file
 	main.load.bitmapFont('')
 }
