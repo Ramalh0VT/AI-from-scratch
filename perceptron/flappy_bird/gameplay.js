@@ -42,5 +42,5 @@ function loadGameImages(game){
 }
 
 function loadBitMapFonts(main){
-	main.load
+	main.load.bitmapFont('')
 }
